@@ -1,0 +1,20 @@
+create table DOCUMENTO(
+IdDocumento int primary key identity(1,1),
+Descripcion varchar(100),
+Ruta varchar(100)
+)
+
+go
+
+create proc sp_guardar_documento(
+@descripcion varchar(100),
+@ruta varchar(100)
+)
+as
+begin
+	insert into DOCUMENTO(Descripcion,ruta) values (@descripcion, @ruta)
+end
+
+go
+
+SELECT * FROM DOCUMENTO
